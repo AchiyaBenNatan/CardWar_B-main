@@ -71,7 +71,6 @@ namespace ariel{
             pl2.getCards().pop_back();
             pl1.setStackSize(pl1.stacksize() - 1);
             pl2.setStackSize(pl2.stacksize() - 1);
-            //cout << pl1.getCards().size() << " " << pl2.getCards().size()<<endl;
             draws++;
         }
         else if (tie&&pl1.stacksize()==1)
