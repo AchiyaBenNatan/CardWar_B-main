@@ -11,13 +11,9 @@ using namespace std;
 using namespace ariel;
 namespace ariel{
     static bool tie = false;
-    static int numOfTie = 0;
-    static int draws = 0;
-    static int turns = 0;
-    static int p1Wins = 0;
-    static int p2Wins = 0;
-    static int p1CardsWon = 0;
-    static int p2CardsWon = 0;
+    int numOfTie = 0;
+    double draws = 0;
+    double turns = 0;
     Player p1 = Player();
     string lastTurn = "";
     string log = "";
@@ -79,6 +75,8 @@ namespace ariel{
             pl2.setStackSize(pl2.stacksize() - 1);
             pl1.setCardsTaken(pl1.cardesTaken()+2*numOfTie);
             pl2.setCardsTaken(pl2.cardesTaken()+2*numOfTie);
+            draws++;
+
             return 0;
         }
         Card c1 = pl1.getCards().back();
@@ -87,7 +85,6 @@ namespace ariel{
         pl2.getCards().pop_back();
         pl1.setStackSize(pl1.stacksize() - 1);
         pl2.setStackSize(pl2.stacksize() - 1);
-        //cout << pl1.getCards().size() << " " << pl2.getCards().size()<<endl;
 
         if (c1.getNum()>c2.getNum())
         {
@@ -116,6 +113,7 @@ namespace ariel{
             
             tie = true;
             numOfTie++;
+            draws++;
             lastTurn += pl1.getname()+" " + c1.toString() + ", "+pl2.getname()+" " + c2.toString()+", tie. \n";
             if(pl1.stacksize()>0)
             {
@@ -143,7 +141,7 @@ namespace ariel{
         {
             
             playTurn();
-            printLastTurn();
+            //printLastTurn();
         }
         //cout << "Game is over.\n";
         return 0;
@@ -170,7 +168,8 @@ namespace ariel{
     }
     void Game::printStats()
     {
-        
+        cout<<pl1.getname()<<" won " <<pl1.cardesTaken()<< " cards."<< pl2.getname()<<" won " <<pl2.cardesTaken()<< " cards."<<endl
+        <<draws<<" draws have happend. Draw rate is: "<<draws/turns<<endl;
     }
     Player Game::getFirstPlayer()
     {
