@@ -30,6 +30,8 @@ namespace ariel{
     }
     Game::Game(Player &p1, Player &p2):pl1(p1), pl2(p2)
     {
+        draws = 0;
+        turns = 0;
         int index = 0;
         std::vector<Card> deck;
         for (char suit : {'H', 'D', 'C', 'S'}) { 
