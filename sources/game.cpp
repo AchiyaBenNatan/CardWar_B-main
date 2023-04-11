@@ -69,7 +69,6 @@ namespace ariel{
             pl2.getCards().pop_back();
             pl1.setStackSize(pl1.stacksize() - 1);
             pl2.setStackSize(pl2.stacksize() - 1);
-            draws++;
         }
         else if (tie&&pl1.stacksize()==1)
         {
@@ -77,8 +76,6 @@ namespace ariel{
             pl2.setStackSize(pl2.stacksize() - 1);
             pl1.setCardsTaken(pl1.cardesTaken()+2*numOfTie);
             pl2.setCardsTaken(pl2.cardesTaken()+2*numOfTie);
-            draws++;
-
             return 0;
         }
         Card c1 = pl1.getCards().back();
@@ -170,7 +167,7 @@ namespace ariel{
     }
     void Game::printStats()
     {
-        cout<<pl1.getname()<<" won " <<pl1.cardesTaken()<< " cards."<< pl2.getname()<<" won " <<pl2.cardesTaken()<< " cards."<<endl
+        cout<<pl1.getname()<<" won " <<pl1.cardesTaken()<< " cards. "<< pl2.getname()<<" won " <<pl2.cardesTaken()<< " cards."<<endl
         <<draws<<" draws have happend. Draw rate is: "<<draws/turns<<endl;
     }
     Player Game::getFirstPlayer()
