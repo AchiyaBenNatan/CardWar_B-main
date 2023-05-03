@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <random>
 #include <chrono>
+
 using namespace std; 
 using namespace ariel;
 namespace ariel{
@@ -135,14 +136,11 @@ namespace ariel{
     }
     int Game::playAll()
     {
-        //printVector(pl1.getCards());
         while (pl1.stacksize()!=0)
         {
             
             playTurn();
-            //printLastTurn();
         }
-        //cout << "Game is over.\n";
         return 0;
     }
     void Game::printWiner()
