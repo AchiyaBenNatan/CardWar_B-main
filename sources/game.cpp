@@ -85,8 +85,8 @@ namespace ariel{
         pl2.getCards().pop_back();
         pl1.setStackSize(pl1.stacksize() - 1);
         pl2.setStackSize(pl2.stacksize() - 1);
-
-        if (c1.getNum()>c2.getNum())
+        if (c1.getNum()>c2.getNum()&&c1.getNum()!=1&&c2.getNum()!=1
+            ||(c1.getNum()==1&&c2.getNum()!=2)||(c1.getNum()==2&&c2.getNum()==1))
         {
             pl1.setCardsTaken(pl1.cardesTaken()+2+4*numOfTie);
             lastTurn += pl1.getname()+" " + c1.toString() + ", "+pl2.getname()+" " + c2.toString()+", "+ pl1.getname() + " wins!\n";
@@ -97,7 +97,8 @@ namespace ariel{
             pl1.setStackSize(pl1.getCards().size());
             pl2.setStackSize(pl2.getCards().size());
         }
-        else if (c1.getNum()<c2.getNum())
+        else if (c2.getNum()>c1.getNum()&&c2.getNum()!=1&&c1.getNum()!=1
+            ||(c2.getNum()==1&&c1.getNum()!=2)||(c2.getNum()==2&&c1.getNum()==1))
         {
             pl2.setCardsTaken(pl2.cardesTaken()+2+4*numOfTie);
             lastTurn += pl1.getname()+" " + c1.toString() + ", "+pl2.getname()+" " + c2.toString()+", "+ pl2.getname() + " wins!\n";
