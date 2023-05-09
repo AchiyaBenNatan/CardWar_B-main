@@ -139,14 +139,13 @@ namespace ariel{
     {
         while (pl1.stacksize()!=0)
         {
-            
             playTurn();
         }
         return 0;
     }
     void Game::printWiner()
     {
-        cout << pl1.cardesTaken() << " " << pl2.cardesTaken() << "\n";
+        cout << pl1.getname()<<" cards taken: "<< pl1.cardesTaken() << ", "<< pl2.getname()<<" cards taken: "<< pl2.cardesTaken() << "\n";
         if (pl1.cardesTaken()>pl2.cardesTaken())
         {
             cout << pl1.getname() << " wins!\n";
